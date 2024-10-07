@@ -1,0 +1,118 @@
+/* src/styles.css */
+
+/* Search Bar */
+.search-bar-container {
+    width: 100%;
+    background-color: #f7f7f7;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-bar {
+    width: 66.67%; /* 2/3 width */
+    max-width: 500px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-bar:focus {
+    border-color: #00AFB9;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text visibility */
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* Buttons */
+  .discover-btn {
+    background-color: #817C7C;
+    color: white;
+    border-radius: 6px;
+    padding: 12px 24px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .discover-btn:hover {
+    background-color: #6b6969;
+  }
+  
+  .signup-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 6px;
+    padding: 12px 24px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .signup-btn:hover {
+    background-color: white;
+    color: black;
+  }
+
+.song-card img {
+  width: 100%; /* Full width of the container */
+  height: 200px; /* Fixed height */
+  object-fit: cover; /* Maintain aspect ratio and cover */
+}
+
+@media (max-width: 768px) {
+  .song-card img {
+    height: 200px; /* Keep the height the same on mobile */
+  }
+}
+@media (max-width: 768px) {
+  .artist-card img {
+    width: 183px !important; /* Fixed width for mobile */
+    height: 183px !important; /* Fixed height for mobile */
+  }
+}
+
+.artists-container {
+    overflow-x: auto;
+  }
+  
