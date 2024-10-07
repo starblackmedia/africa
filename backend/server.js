@@ -1,20 +1,28 @@
-// server.js
-
+require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
-require('dotenv').config(); // Load environment variables from .env file
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const cors = require('cors'); // Import cors
+const influencerRoutes = require('./routes/influencerRoutes');
+const artistRoutes = require('./routes/artistRoutes'); // Import the artist routes
 
 const app = express();
-const PORT = process.env.PORT || 5001; // Set the port to use from environment variable or default to 5000
+app.use(cors()); // Enable CORS for all routes
+app.use(bodyParser.json()); // Middleware for parsing JSON bodies
 
-app.use(cors()); // Enable CORS
-app.use(express.json()); // Parse incoming JSON requests
+// Load the MongoDB URI from environment variables
+const mongoURI = process.env.MONGODB_URI;
 
-// Simple route to test the server
-app.get('/', (req, res) => {
-    res.send('Welcome to the Music App API!');
-});
+// Connect to MongoDB without deprecated options
+mongoose.connect(mongoURI)
+    .then(() => console.log('MongoDB connected...'))
+    .catch(err => console.error('MongoDB connection error:', err));
 
+// Use the influencer and artist routes
+app.use('/api/influencers', influencerRoutes); // Register your influencer routes
+app.use('/api/artists', artistRoutes); // Register your artist routes
+
+const PORT = process.env.PORT || 5004; // Port for the server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
