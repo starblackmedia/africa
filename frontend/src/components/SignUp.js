@@ -16,36 +16,36 @@ const SignUp = () => {
       case 'influencer':
         return <InfluencerSignUp />;
       default:
-        return <p className="text-lg text-white mt-4">Please select a user type to begin registration.</p>;
+        return <p className="text-lg text-gray-700 mt-4">Please select a user type to begin registration.</p>;
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 via-pink-500 to-purple-500 p-6">
-      <h1 className="text-4xl font-bold text-white mb-8">Create Your Account</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
+      <h1 className="text-4xl font-bold text-gray-800 mb-8">Create Your Account</h1>
 
       {/* Buttons for user type selection */}
       <div className="flex space-x-4 mb-6">
         <button
           className={`px-6 py-3 text-lg rounded-full font-medium transition-all 
-            ${selectedUserType === 'artist' ? 'bg-white text-pink-600' : 'bg-pink-500 text-white'} 
-            hover:bg-white hover:text-pink-600`}
+            ${selectedUserType === 'artist' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800'} 
+            hover:bg-yellow-500 hover:text-white`}
           onClick={() => setSelectedUserType('artist')}
         >
           Artist
         </button>
         <button
           className={`px-6 py-3 text-lg rounded-full font-medium transition-all 
-            ${selectedUserType === 'fan' ? 'bg-white text-blue-600' : 'bg-blue-500 text-white'} 
-            hover:bg-white hover:text-blue-600`}
+            ${selectedUserType === 'fan' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800'} 
+            hover:bg-yellow-500 hover:text-white`}
           onClick={() => setSelectedUserType('fan')}
         >
           Fan
         </button>
         <button
           className={`px-6 py-3 text-lg rounded-full font-medium transition-all 
-            ${selectedUserType === 'influencer' ? 'bg-white text-purple-600' : 'bg-purple-500 text-white'} 
-            hover:bg-white hover:text-purple-600`}
+            ${selectedUserType === 'influencer' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800'} 
+            hover:bg-yellow-500 hover:text-white`}
           onClick={() => setSelectedUserType('influencer')}
         >
           Influencer
@@ -59,9 +59,9 @@ const SignUp = () => {
 
       {/* Login prompt */}
       <div className="mt-6">
-        <p className="text-white text-base">
+        <p className="text-gray-700 text-base">
           Already have an account?{' '}
-          <Link to="/login" className="text-yellow-400 hover:underline">
+          <Link to="/login" className="text-yellow-500 hover:underline">
             Log in
           </Link>
         </p>

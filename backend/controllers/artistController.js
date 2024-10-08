@@ -13,6 +13,12 @@ const registerArtist = async (req, res) => {
       return res.status(400).json({ error: 'All fields are required.' });
     }
 
+    // Check if the email already exists
+    const existingArtist = await Artist.findOne({ email });
+    if (existingArtist) {
+      return res.status(400).json({ error: 'Email already registered. Please log in.' });
+    }
+
     console.log('Attempting to hash password:', password);
     const hashedPassword = await bcrypt.hash(password, 10);
     console.log('Hashed Password:', hashedPassword); // Log the hashed password
